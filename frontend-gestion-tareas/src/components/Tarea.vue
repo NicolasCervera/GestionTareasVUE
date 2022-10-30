@@ -6,16 +6,18 @@
             <div class="card mt-4">
                 <div class="card-body">
                     <div class="input-group">
-                        <input type="text" class="form-control form-control-lg" placeholder="Agregar tarea">
+                        <input type="text" class="form-control form-control-lg" placeholder="Agregar tarea" v-model="tarea">
                         <div class="input-group-append">
-                            <button class="btn btn-success btn-lg">Agregar</button>
+                            <button v-on:click="agregarTarea()" class="btn btn-success btn-lg">Agregar</button>
                         </div>
                     </div>
                     <br>
+        
                     <ul class="list-group">
-                        <li class="list-group-item d-flex justify-content-between">
+                        <li v-for="(tarea, index) of listTareas"  :key="index"
+                         class="list-group-item d-flex justify-content-between">
                             <span class="cursor"><i class="fa-regular fa-circle"></i></span>
-                            Hacer la tarea
+                            {{tarea.nombre}}
                             <span class="text-danger cursor"><i class="fa-solid fa-trash-can"></i></span>
                         </li>
                     </ul>
@@ -27,7 +29,23 @@
 
 <script>
     export default {
-        name: 'Tarea'
+        name: 'Tarea',
+        data(){
+            return{
+                tarea: '',
+                listTareas:[]
+            }
+        },
+        methods:{
+            agregarTarea(){
+                const tarea = {
+                    nombre: this.tarea,
+                    estado: false
+                }
+                this.listTareas.push(tarea);
+                this.tarea = '';
+            }
+        }
     }
 </script>
 
