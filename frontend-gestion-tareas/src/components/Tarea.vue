@@ -20,9 +20,10 @@
                             class="list-group-item d-flex justify-content-between">
                             <span class="cursor" v-on:click="editarTarea(tarea, index)" v-bind:class="{'text-success': tarea.estado}">
                                 <!-- Dos maneras de realizar para dos tipos de estados -->
-                                <!-- <i v-if="listTareas[index].estado == false" class="fa-regular fa-circle"></i>
-                                <i v-if="listTareas[index].estado == true" class="fa-solid fa-check"></i> -->
 
+                               <!--  <i v-if="listTareas[index].estado == false" class="fa-regular fa-circle"></i>
+                                <i v-if="listTareas[index].estado == true" class="fa-solid fa-check"></i>-->
+                                
                                 <i v-bind:class="[tarea.estado ? 'fa-solid fa-circle-check' : 'fa-regular fa-circle']"></i>
                             </span>
                             <p>
