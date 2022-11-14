@@ -80,11 +80,6 @@ namespace backend_gestion_tareas
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-                endpoints.MapRazorPages();
-            });
         }
     }
 }
